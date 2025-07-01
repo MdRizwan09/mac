@@ -1,0 +1,26 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Database
+*.sqlite3
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migrations (optional)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+*/migrations/*.py
+
+# Ignore all images in shop/static/shop/
+media/shop/images/*.jpg
+media/shop/images/*.jpeg
+media/shop/images/*.png
+media/shop/images/*.gif
+media/shop/images/*.webp
