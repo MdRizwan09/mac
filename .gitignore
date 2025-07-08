@@ -19,8 +19,8 @@ Thumbs.db
 */migrations/*.py
 
 # Ignore all images in shop/static/shop/
-media/shop/images/*.jpg
-media/shop/images/*.jpeg
-media/shop/images/*.png
-media/shop/images/*.gif
-media/shop/images/*.webp
+# media/shop/images/*.jpg
+# media/shop/images/*.jpeg
+# media/shop/images/*.png
+# media/shop/images/*.gif
+# media/shop/images/*.webp
