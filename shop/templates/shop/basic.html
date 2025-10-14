@@ -68,28 +68,41 @@
             console.log('Working...')
 
             if( localStorage.getItem('cart') == null){
-            var cart = {};
+                var cart = {};
             }
             else {
-            cart = JSON.parse(localStorage.getItem('cart'));
-            document.getElementById('cart').innerHTML = Object.keys(cart).length;
+                cart = JSON.parse(localStorage.getItem('cart'));
+                // document.getElementById('cart').innerHTML = Object.keys(cart).length;
+                // Display initial count
+                document.getElementById('cart').innerHTML = getTotalItems(cart);
+            }
+
+            // Function to get total number of items in the cart
+            function getTotalItems(cart) {
+                let total = 0;
+                for (let key in cart) {
+                    total += cart[key];
+                }
+                return total;
             }
 
             $('.cart').click(function(){
-            console.log('Cart button clicked...');
-            var idstr = this.id.toString();
-            console.log(idstr);
+                console.log('Cart button clicked...');
+                var idstr = this.id.toString();
+                console.log(idstr);
 
-            if (cart[idstr] != undefined){
-                cart[idstr] = cart[idstr] + 1;
-            }
-            else {
-                cart[idstr] = 1;
-            }
-            console.log(cart);
+                if (cart[idstr] != undefined){
+                    cart[idstr] = cart[idstr] + 1;
+                }
+                else {
+                    cart[idstr] = 1;
+                }
+                console.log(cart);
 
-            localStorage.setItem('cart', JSON.stringify(cart))
-            document.getElementById('cart').innerHTML = Object.keys(cart).length;
+                localStorage.setItem('cart', JSON.stringify(cart))
+                // document.getElementById('cart').innerHTML = Object.keys(cart).length;
+                // Display initial count
+                document.getElementById('cart').innerHTML = getTotalItems(cart);
 
             });
 
