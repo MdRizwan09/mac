@@ -74,17 +74,22 @@
                 cart = JSON.parse(localStorage.getItem('cart'));
                 // document.getElementById('cart').innerHTML = Object.keys(cart).length;
                 // Display initial count
-                document.getElementById('cart').innerHTML = getTotalItems(cart);
+                document.getElementById('cart').innerHTML = getTotalUniqueItems(cart);
                 updateCart(cart);
             }
 
-            // Function to get total number of items in the cart
+            // Function to get the count of total number of items in the cart
             function getTotalItems(cart) {
                 let total = 0;
                 for (let key in cart) {
                     total += cart[key];
                 }
                 return total;
+            }
+
+            // Function to get the count of unique items in the cart
+            function getTotalUniqueItems(cart) {
+                return Object.keys(cart).length;
             }
 
             // If the add to cart button is clicked, add/increment the item
@@ -114,7 +119,7 @@
                 localStorage.setItem('cart', JSON.stringify(cart))
                 // document.getElementById('cart').innerHTML = Object.keys(cart).length;
                 // Display initial count
-                document.getElementById('cart').innerHTML = getTotalItems(cart);
+                document.getElementById('cart').innerHTML = getTotalUniqueItems(cart);
                 console.log(cart)
             }
 
