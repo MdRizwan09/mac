@@ -109,7 +109,25 @@
 
             // Add popover to cart
             $('#popcart').popover();
-            document.getElementById("popcart").setAttribute('data-content', '<h5>Cart for your items in my shopping cart</h5>');
+            
+            updatePopover(cart);
+
+            function updatePopover(cart)
+            {
+                console.log('We are inside updatePopover()');
+                var popStr = "";
+                popStr = popStr + "<h5>Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+                var i = 1;
+                for( var item in cart ){
+                    popStr = popStr + "<b>" + i + "</b>.";
+                    popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "...  Qty: " + cart[item] + "<br>";
+                    i = i + 1;
+                }
+                popStr = popStr + "</div>";
+                console.log(popStr);
+                document.getElementById('popcart').setAttribute('data-content', popStr);
+                $('#popcart').popover('show');
+            }
 
             function updateCart(cart){
                 for( var item in cart ){
@@ -120,7 +138,8 @@
                 // document.getElementById('cart').innerHTML = Object.keys(cart).length;
                 // Display initial count
                 document.getElementById('cart').innerHTML = getTotalUniqueItems(cart);
-                console.log(cart)
+                console.log(cart);
+                updatePopover(cart);
             }
 
             // If plus or minus button is clicked, change the cart as well as the display value
